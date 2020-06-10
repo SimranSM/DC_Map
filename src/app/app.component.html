@@ -1,0 +1,46 @@
+
+<div class = "title">{{title}}</div>
+<agm-map [latitude]="38.927291" [longitude]="-77.014418">
+
+  <div *ngFor="let hospital of hospitals">
+     <agm-marker [visible] = "Hbutton" [latitude]="hospital.lat" [longitude] = "hospital.lng">
+
+     </agm-marker>
+  </div>
+
+  <div *ngFor="let firestation of fireStations">
+    <agm-marker [visible] = "FSbutton" [latitude]="firestation.lat" [longitude] = "firestation.lng"></agm-marker>
+  </div>
+
+  <div *ngFor="let postOffice of postOffices">
+    <agm-marker [visible] = "PObutton" [latitude]="postOffice.lat" [longitude] = "postOffice.lng"></agm-marker>
+  </div>
+
+</agm-map>
+
+<div class = "buttons">
+
+  <button *ngIf = "Hbutton" mat-raised-button color = "primary"  (click) ="showHospitals()">
+   Show Hospitals
+  </button>
+  <button *ngIf = "!Hbutton" mat-raised-button color = "accent"  (click) ="showHospitals()">
+    Show Hospitals
+  </button>
+
+  <button *ngIf = "FSbutton" mat-raised-button color = "primary" (click) ="showFireStations()">
+   Show Fire Stations
+  </button>
+  <button *ngIf = "!FSbutton" mat-raised-button color = "accent" (click) ="showFireStations()">
+    Show Fire Stations
+  </button>
+
+  <button *ngIf = "PObutton" mat-raised-button color = "primary" (click) ="showPostOffices()">
+   Show Post Offices
+  </button>
+  <button *ngIf = "!PObutton" mat-raised-button color = "accent" (click) ="showPostOffices()">
+    Show Post Offices
+  </button>
+
+</div>
+
+
